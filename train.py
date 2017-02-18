@@ -47,9 +47,9 @@ gpu_flag = True if args.gpu > 0 else False
 model = VGG(n_class)
 model.train = True
 
-if args.initmodel:
-    serializers.load_npz(args.initmodel, model)
-    print("Load initial weight")
+
+serializers.load_npz("vgg16.model", model)
+print("Load initial weight")
 
 if args.gpu >= 0:
     chainer.cuda.get_device(args.gpu).use()
